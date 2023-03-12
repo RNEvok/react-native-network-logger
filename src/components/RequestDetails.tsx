@@ -8,7 +8,7 @@ import {
   TextInput,
   Platform,
 } from 'react-native';
-import NetworkRequestInfo from '../NetworkRequestInfo';
+import { NetworkRequestInfo } from '../NetworkRequestInfo';
 import { useThemedStyles, Theme } from '../theme';
 import { backHandlerSet } from '../backHandler';
 import ResultItem from './ResultItem';

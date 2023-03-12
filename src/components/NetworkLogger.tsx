@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Alert, View, StyleSheet, BackHandler, Share } from 'react-native';
 import logger from '../loggerSingleton';
-import NetworkRequestInfo from '../NetworkRequestInfo';
+import { NetworkRequestInfo } from '../NetworkRequestInfo';
 import { Theme, ThemeContext, ThemeName } from '../theme';
 import { setBackHandler } from '../backHandler';
 import { DeepPartial } from '../types';

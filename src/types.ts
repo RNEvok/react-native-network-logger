@@ -1,6 +1,6 @@
-export type Headers = { [header: string]: string };
+import { NetworkRequestInfo } from "./NetworkRequestInfo";
 
-export type RequestMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+export { Headers, RequestMethod } from "./NetworkRequestInfo";
 
 export type StartNetworkLoggingOptions = {
   /**
@@ -23,6 +23,10 @@ export type StartNetworkLoggingOptions = {
    * e.g. a dev/debuging program
    */
   forceEnable?: boolean;
+  /**
+   * Custom onRequest callback
+   */
+  onRequest: (request: NetworkRequestInfo) => void;
 };
 
 export type DeepPartial<T> = {

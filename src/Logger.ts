@@ -1,5 +1,5 @@
 import XHRInterceptor from 'react-native/Libraries/Network/XHRInterceptor';
-import NetworkRequestInfo from './NetworkRequestInfo';
+import { NetworkRequestInfo } from './NetworkRequestInfo';
 import { Headers, RequestMethod, StartNetworkLoggingOptions } from './types';
 import extractHost from './utils/extractHost';
 import { warn } from './utils/logger';
@@ -19,6 +19,7 @@ export default class Logger {
   private ignoredUrls: Set<string> | undefined;
   private ignoredPatterns: RegExp[] | undefined;
   public enabled = false;
+  public externalOnRequestCallback: ((request: NetworkRequestInfo) => void) | undefined;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   callback = (requests: any[]) => {};
@@ -78,6 +79,10 @@ export default class Logger {
     }
 
     this.requests.unshift(newRequest);
+    
+    if (this.externalOnRequestCallback) {
+      this.externalOnRequestCallback(newRequest);
+    }
   };
 
   private requestHeadersCallback = (
@@ -181,6 +186,10 @@ export default class Logger {
         return;
       }
       this.ignoredUrls = new Set(options.ignoredUrls);
+    }
+
+    if (options?.onRequest) {
+      this.externalOnRequestCallback = options.onRequest;
     }
 
     XHRInterceptor.setOpenCallback(this.openCallback);

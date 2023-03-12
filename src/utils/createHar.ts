@@ -1,4 +1,4 @@
-import NetworkRequestInfo from '../NetworkRequestInfo';
+import { NetworkRequestInfo } from '../NetworkRequestInfo';
 
 const createHarEntry = async (request: NetworkRequestInfo) => {
   const body = request.getRequestBody();

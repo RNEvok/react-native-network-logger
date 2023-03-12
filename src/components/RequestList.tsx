@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
-import NetworkRequestInfo from '../NetworkRequestInfo';
+import { NetworkRequestInfo } from '../NetworkRequestInfo';
 import { useThemedStyles, Theme } from '../theme';
 import ResultItem from './ResultItem';
 import Button from './Button';

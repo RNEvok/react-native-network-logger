@@ -1,4 +1,4 @@
-import NetworkRequestInfo from '../NetworkRequestInfo';
+import { NetworkRequestInfo } from '../NetworkRequestInfo';
 
 jest.mock('react-native/Libraries/Blob/FileReader', () => ({}));
 

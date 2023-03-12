@@ -1,8 +1,11 @@
 import BlobFileReader from 'react-native/Libraries/Blob/FileReader';
-import { Headers, RequestMethod } from './types';
 import fromEntries from './utils/fromEntries';
 
-export default class NetworkRequestInfo {
+export type Headers = { [header: string]: string };
+
+export type RequestMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+
+export class NetworkRequestInfo {
   id = '';
   type = '';
   url = '';
