@@ -26,7 +26,7 @@ export type StartNetworkLoggingOptions = {
   /**
    * Custom onRequest callback
    */
-  onRequest: (request: NetworkRequestInfo) => void;
+  onRequest?: (request: NetworkRequestInfo) => void;
 };
 
 export type DeepPartial<T> = {
